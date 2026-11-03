@@ -14,6 +14,13 @@ Nothing here is authenticated: the deployment holds an identifier and no key, so
 
 No route here reaches a model or a device. The two surfaces that name a model call state in their own `notDone` field that they do NOT make it.
 
+## What the market layer answers today
+
+The market layer answers one question: **what is worth offering, judged on what was received rather than on who offered it.**
+A candidate is offered as an artifact — a capability table, a declared prefix, a disclosure of what it does not do — and it is graded against conditions it can fail; the verdict is recorded beside the candidate instead of replacing it, so a reader sees the offer and the grading of the offer.
+It refuses what it cannot measure, and it says which condition refused rather than returning a quiet no: an unread member is reported as absent or unmeasured with its reason, and a refusal that names nothing is treated as a defect of the refusal rather than a verdict.
+What it does NOT do is stated here as plainly as what it does: it does not enforce, because a verdict is not a control; it has not been exercised against a peer fleet beyond a single host; and it makes no claim about a rendered surface, since how a deployment presents the data is the deployment choice.
+
 ## Adopting it inside DSH
 
 **A consumer installs the published pre-release package, and nothing else.** This package is a SOURCE PREVIEW: the source tree is readable and reviewable, but it is not an install target. Read `DISCLOSURE.md` before depending on any shape.
