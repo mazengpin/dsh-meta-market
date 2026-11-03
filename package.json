@@ -22,7 +22,9 @@
     "CHARTER.md",
     "README.md",
     "LICENSE",
-    "ROADMAP.md"
+    "ROADMAP.md",
+    "DISCLOSURE.md",
+    "CONTEXT.md"
   ],
   "engines": {
     "node": "^22.19.0 || >=24.0.0",

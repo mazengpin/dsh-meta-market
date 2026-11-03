@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-03T19:46:55.599Z",
+  "at": "2026-11-03T20:13:59.496Z",
   "offline": false,
   "checks": [
     {
@@ -648,7 +648,7 @@
           {
             "path": "/lvl1-gate/api/align",
             "kind": "exact",
-            "status": 400,
+            "status": null,
             "skipped": null
           },
           {
@@ -1856,37 +1856,37 @@
       "numerator": 57,
       "denominator": 62,
       "population": "dependencies entries in the live profile manifest whose checkout exists on disk",
-      "at": "2026-11-03T19:46:51.890Z"
+      "at": "2026-11-03T20:13:51.200Z"
     },
     {
       "numerator": 57,
       "denominator": 64,
       "population": "dsh.profile.bundles entries naming a dependency of this profile, against all bundle entries (the remainder are official @deepseek-ai bundles)",
-      "at": "2026-11-03T19:46:51.890Z"
+      "at": "2026-11-03T20:13:51.200Z"
     },
     {
       "numerator": 5785,
       "denominator": 5785,
       "population": "rows parsed from the downloadable live catalog against the file's own count header",
-      "at": "2026-11-03T19:46:51.890Z"
+      "at": "2026-11-03T20:13:51.200Z"
     },
     {
       "numerator": 2604,
       "denominator": 5785,
       "population": "downloadable rows carrying an npm field against downloadable rows",
-      "at": "2026-11-03T19:46:51.890Z"
+      "at": "2026-11-03T20:13:51.200Z"
     },
     {
       "numerator": 983,
       "denominator": 2604,
       "population": "downloadable rows whose npm differs from name, against rows carrying an npm field",
-      "at": "2026-11-03T19:46:51.890Z"
+      "at": "2026-11-03T20:13:51.200Z"
     },
     {
       "numerator": 689,
       "denominator": 5785,
       "population": "downloadable rows sharing a name with another row, against downloadable rows",
-      "at": "2026-11-03T19:46:51.890Z"
+      "at": "2026-11-03T20:13:51.200Z"
     }
   ]
 }

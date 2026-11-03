@@ -16,13 +16,21 @@ No route here reaches a model or a device. The two surfaces that name a model ca
 
 ## Install
 
-Two edits in the consuming profile, then one restart — there is no per-request manual step and no code generation step.
+**A consumer installs the published pre-release package, and nothing else.** This package is a SOURCE PREVIEW: the source tree is readable and reviewable, but it is not an install target. Read `DISCLOSURE.md` before depending on any shape.
 
-1. Add the dependency as a relative `link:` in `profiles-tree/<profile>/package.json`: `"dsh-meta-market": "link:../../plugins-src/dsh-meta-market"`.
-2. Add `"dsh-meta-market"` to that manifest's `dsh.profile.bundles` array. The bundle patch `cordis.patch.yml` carries the single `insert` row, so the loader mounts the Host half as the row `meta-market` and the client half is served from `exports["./client"]`.
-3. Run `pnpm install` in the profile, then restart `dsh web`. A `dsh.profile.bundles` change hot-reloads; the Host half is a boot-time load.
+1. `pnpm add dsh-meta-market@next` in the consuming profile. The `next` dist-tag is the only tag this pre-release is published on.
+2. Add `"dsh-meta-market"` to the profile `dsh.profile.bundles` array. The bundle patch `cordis.patch.yml` carries the single `insert` row, so the loader mounts the Host half as the row `meta-market` and the client half is served from `exports["./client"]`.
+3. Restart `dsh web`. A `dsh.profile.bundles` change hot-reloads; the Host half is a boot-time load.
 
-Build the clone before the profile consumes it: `pnpm install && pnpm run build` here. `lib/index.js` is the Host half and `lib/client.js` the browser half; both ship in `files`.
+## Developing this clone
+
+**These steps describe DEVELOPING the package. They are not a consumer install, and a profile must not link a working tree as though it were a release.**
+
+1. `git clone <this repository>` and `cd` into `plugins-src/dsh-meta-market`.
+2. `node -v` must satisfy `engines.node` (`^22.19.0 || >=24.0.0`).
+3. `pnpm install` — six devDependencies, no runtime dependencies.
+4. `pnpm run typecheck`, `pnpm run build`, `pnpm run verify`. `lib/index.js` is the Host half and `lib/client.js` the browser half; both ship in `files`.
+5. On this machine only, a development profile can consume the built clone through a relative `link:` — `"dsh-meta-market": "link:../../plugins-src/dsh-meta-market"` — plus the `dsh.profile.bundles` entry and a restart. An absolute path is not supported, and neither is publishing from source.
 
 ## Panel
 
