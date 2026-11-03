@@ -162,11 +162,11 @@ if (ic === null) {
       ? 'clone root not resolved'
       : `lib/ → ${simulate.path ?? 'NOT FOUND'} (searched ${simulate.searched.length}); source → ${sourceProfile ?? 'NOT FOUND'}`,
   )
-  const outside = resolveProfileDirFrom('C:/Windows/System32')
+  const outside = resolveProfileDirFrom('<system>/bin')
   check(
     'the shape search reports NOT FOUND outside the checkout rather than guessing',
     outside.path === null && outside.searched.length > 0,
-    `C:/Windows/System32 → ${outside.path ?? 'null'} (searched ${outside.searched.length})`,
+    `<system>/bin → ${outside.path ?? 'null'} (searched ${outside.searched.length})`,
   )
 }
 

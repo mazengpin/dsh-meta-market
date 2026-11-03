@@ -68168,7 +68168,7 @@
    "category": "memory",
    "description": {
     "en": "Bridge into a global Markdown knowledge base shared with the Codex kb.cmd CLI: kb_add/kb_search/kb_show/kb_timeline tools with byte-compatible frontmatter.",
-    "zh": "全局知识库桥：kb_add/kb_search/kb_show/kb_timeline 读写与 Codex 共享的 D:\\knowledge（格式逐字节兼容）。"
+    "zh": "全局知识库桥：kb_add/kb_search/kb_show/kb_timeline 读写与 Codex 共享的 <local>/knowledge（格式逐字节兼容）。"
    },
    "npm": null,
    "version": null,
@@ -79782,8 +79782,8 @@
    "page": "https://awesome-dsh-plugin.com/p/jing-hy/dsh-task-runner/",
    "category": "tools",
    "description": {
-    "en": "Project/task dual-mode workspaces for DSH: a task skips the workspace picker and gets a fresh scratch directory (D:\\dsh_working\\<name>-<timestamp>) per conversation, Codex-style; no-workspace sessions are grouped under a persistent Tasks section in the sidebar with empty states, and the new-session workspace picker gains a \"no workspace (task)\" option.",
-    "zh": "DSH 项目/任务双模式工作区：任务不绑定工作区，每次新对话在 D:\\dsh_working\\<名称>-<时间戳> 自动创建独立临时目录（类 Codex）；侧边栏\"任务\"分组常驻显示所有无工作区会话并带空状态提示，新建会话的工作区选择器增加\"无工作区（任务）\"选项。"
+    "en": "Project/task dual-mode workspaces for DSH: a task skips the workspace picker and gets a fresh scratch directory (<scratch>/<run><name>-<timestamp>) per conversation, Codex-style; no-workspace sessions are grouped under a persistent Tasks section in the sidebar with empty states, and the new-session workspace picker gains a \"no workspace (task)\" option.",
+    "zh": "DSH 项目/任务双模式工作区：任务不绑定工作区，每次新对话在 <scratch>/<run><名称>-<时间戳> 自动创建独立临时目录（类 Codex）；侧边栏\"任务\"分组常驻显示所有无工作区会话并带空状态提示，新建会话的工作区选择器增加\"无工作区（任务）\"选项。"
    },
    "npm": "dsh-task-runner",
    "version": "1.1.0",
