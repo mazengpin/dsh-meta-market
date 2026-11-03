@@ -36,6 +36,19 @@ No route here reaches a model or a device. The two surfaces that name a model ca
 
 One row in `sidebar.panellist` (`dsh-meta-market:market`, order 6.6, label from the `en` dictionary) and one `keyed` panel in `main` with the SAME key. The row id and the panel key are two separate declarations of one value on purpose: the two slots spell identity differently (`id` versus `key`) and a mismatch renders a row whose first click throws.
 
+## Roadmap at a glance
+
+A glance, not a second record: the authoritative list — with the evidence for every done row, the reason for every deferred one and the rows marked `NOT MEASURED` — is [`ROADMAP.md`](ROADMAP.md). Where this list and that file differ, that file is right and this list is the defect.
+
+- **What this package is**
+- **What is measured today**
+- **What 1.0.0 still requires**
+- **Limits, stated rather than implied**
+- **Compatibility seam**
+- **How this roadmap is graded**
+
+The roadmap currently carries **0** row(s) marked `NOT MEASURED`; a row moves to done only when its own command prints a green result.
+
 ## Checks
 
 `pnpm run build` (tsdown, two halves), `pnpm run typecheck` (`tsc --noEmit`), `pnpm run verify` (eleven self-contained harnesses). The verify chain deliberately EXCLUDES four harnesses that read the live deployment on `127.0.0.1:3083` — `src/host/providers/verify/tools-skills-census.mjs`, `advanced-drive.mjs`, `probe-memory.mjs` and `meta-plugins-driver.mjs` — because they measure other plugins' routes rather than this package's behaviour, and at the time of this release two of them are RED for reasons outside this package (a `meta-loops` census whose numerator exceeds its denominator, and eight `meta-skills`/`meta-tools` readings). A harness that fails for a reason outside its subject teaches a reader to ignore its red.
