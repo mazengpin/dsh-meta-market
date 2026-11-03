@@ -57,11 +57,11 @@ export const NAMED_STABLE_CANDIDATE = 'dsh-market'
 export const SELF_ID = 'dsh-meta-market'
 
 /** The deepseek-root checkout, as the default roots. Absolute because the plugin runs from anywhere. */
-const DEFAULT_PLUGINS_SRC = 'C:/Users/0000/Projects/deepseek-root/plugins-src'
-const DEFAULT_PROFILE_ROOT = 'C:/Users/0000/Projects/deepseek-root/profiles-tree/personal-dev'
-const DEFAULT_HARNESS_ROOT = 'C:/Users/0000/Projects/deepseek-root/deepseek-harness'
+const DEFAULT_PLUGINS_SRC = '<home>/Projects/deepseek-root/plugins-src'
+const DEFAULT_PROFILE_ROOT = '<home>/Projects/deepseek-root/profiles-tree/personal-dev'
+const DEFAULT_HARNESS_ROOT = '<home>/Projects/deepseek-root/deepseek-harness'
 const DEFAULT_CATALOG =
-  'C:/Users/0000/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE/research/cache/plugins-2026-10-12.json'
+  '<home>/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE/research/cache/plugins-2026-10-12.json'
 
 /** The subset of a `package.json` this module reads. */
 interface Manifest {

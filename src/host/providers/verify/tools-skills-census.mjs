@@ -37,8 +37,8 @@
 import { createServer } from 'node:http'
 
 const WORKSPACE =
-	process.argv[2] ?? 'C:/Users/0000/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE'
-const EVOLVE = 'file:///C:/Users/0000/Projects/deepseek-root/plugins-src/dsh-tools-skills-evolve/src/'
+	process.argv[2] ?? '<home>/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE'
+const EVOLVE = 'file:///<home>/Projects/deepseek-root/plugins-src/dsh-tools-skills-evolve/src/'
 const HERE = new URL('./', import.meta.url)
 
 // The workspace is the PROJECT ROOT for this session (it has its own git repo),

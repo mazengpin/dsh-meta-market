@@ -27,7 +27,7 @@
 import { buildWindow, WINDOW_ID, ROUTE_READINGS } from '../memory.ts'
 
 const BASE = 'http://127.0.0.1:3083'
-const WORKSPACE = 'C:/Users/0000/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE'
+const WORKSPACE = '<home>/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE'
 
 const checks = []
 const record = (id, ok, detail) => checks.push({ id, ok, detail })

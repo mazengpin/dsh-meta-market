@@ -50,7 +50,7 @@ export const WINDOW_ID = 'meta-tools' as const
 const TOOLS_LIVE_BASE = process.env.DSH_META_MARKET_LIVE_BASE ?? 'http://127.0.0.1:3083'
 
 /** Where every clone of this program lives. One constant so a moved tree is one edit. */
-const PLUGINS_SRC = 'C:/Users/0000/Projects/deepseek-root/plugins-src'
+const PLUGINS_SRC = '<home>/Projects/deepseek-root/plugins-src'
 
 /** A route probe's result, or the reason there is no result. */
 interface ToolsProbe {

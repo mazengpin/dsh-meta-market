@@ -54,7 +54,7 @@ import { describeSearch, resolveProfileDir, resolvePluginsSrcDir } from './paths
  * this file sits at `src/host/registry/`, so `../../../../../` reached
  * `deepseek-root` correctly; `tsdown` emits `lib/index.js`, where the same count
  * reached the home directory and the live surface reported
- * `profile manifest unreadable at C:\Users\0000\profiles-tree\personal-dev/package.json`
+ * `profile manifest unreadable at <home>\profiles-tree\personal-dev/package.json`
  * — the Meta-Plugins window `unavailable` for a path error while the data was
  * fine. Found by `surface-host` with a reproduction; repaired in `paths.ts`,
  * which walks up looking for the fixed shape and never consults `HOME`.

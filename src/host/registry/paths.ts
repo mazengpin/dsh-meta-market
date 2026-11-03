@@ -12,7 +12,7 @@
  * points at `<clone>/lib/` — two segments shallower than the source tree it was
  * written against. Measured on the live `3083` surface:
  *
- *   `profile manifest unreadable at C:\Users\0000\profiles-tree\personal-dev/package.json`
+ *   `profile manifest unreadable at <home>\profiles-tree\personal-dev/package.json`
  *
  * — `/Projects/deepseek-root` silently missing, i.e. the walk climbed one
  * directory too far and landed in the home directory. The Meta-Plugins window

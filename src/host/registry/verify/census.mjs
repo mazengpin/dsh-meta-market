@@ -145,13 +145,13 @@ if (ic === null) {
   // ------------------------------------------------- bundle-layout resolution
   // The reported defect: a fixed `../` walk was correct in source and one
   // segment short in the emitted `lib/`, so the live surface reported the
-  // profile manifest at `C:\Users\0000\profiles-tree\personal-dev/package.json`.
+  // profile manifest at `<home>\profiles-tree\personal-dev/package.json`.
   // This drives the SAME resolver from the bundle depth, without writing to lib/.
   const cloneRoot = resolveCloneRoot()
   const simulate = cloneRoot === null ? null : resolveProfileDirFrom(`${cloneRoot}/lib`)
   const sourceProfile = resolveProfileDir().path
   // A SUFFIX TEST ALONE WOULD HAVE PASSED THE DEFECT: the wrong answer was
-  // `C:\Users\0000\profiles-tree\personal-dev`, which ends with the same suffix
+  // `<home>\profiles-tree\personal-dev`, which ends with the same suffix
   // and is simply not there. The assertion that can fail is EXISTENCE plus
   // AGREEMENT with the source-layout answer.
   const bundleManifest = simulate?.path ? `${simulate.path}/package.json` : null

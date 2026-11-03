@@ -19,7 +19,6 @@
     "lib/client.js.map",
     "src",
     "cordis.patch.yml",
-    "CHARTER.md",
     "README.md",
     "LICENSE",
     "ROADMAP.md",
