@@ -1,6 +1,6 @@
-# dsh-meta-market — 0.9.0 pre-release
+# dsh-meta-market — 0.9.1-next.1 pre-release
 
-> **Status: PRE-RELEASE `0.9.0` — under active development.** This package is published on the `next` dist-tag, not `latest`.
+> **Status: PRE-RELEASE `0.9.1-next.1` — built locally, NOT yet published to npm.** The intended dist-tag is `next`, not `latest`; the tarball is produced in `pre_release/_artifacts/` and publishing is an owner step, never performed by this repository.
 > Its API, wire records and panel contracts may change between `0.9.x` releases, and each package carries its own `ROADMAP.md` naming what `1.0.0` still requires.
 > A published tarball is a snapshot of a moving surface: read `ROADMAP.md` before depending on a shape.
 
@@ -18,7 +18,7 @@ No route here reaches a model or a device. The two surfaces that name a model ca
 
 **A consumer installs the published pre-release package, and nothing else.** This package is a SOURCE PREVIEW: the source tree is readable and reviewable, but it is not an install target. Read `DISCLOSURE.md` before depending on any shape.
 
-1. `pnpm add dsh-meta-market@next` in the consuming profile. The `next` dist-tag is the only tag this pre-release is published on.
+1. `pnpm add dsh-meta-market@next` in the consuming profile. The `next` dist-tag is the only tag this pre-release will be published on; as of `0.9.1-next.1` it is not on npm yet.
 2. Add `"dsh-meta-market"` to the profile `dsh.profile.bundles` array. The bundle patch `cordis.patch.yml` carries the single `insert` row, so the loader mounts the Host half as the row `meta-market` and the client half is served from `exports["./client"]`.
 3. Restart `dsh web`. A `dsh.profile.bundles` change hot-reloads; the Host half is a boot-time load.
 
