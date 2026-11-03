@@ -1,6 +1,6 @@
 {
   "name": "dsh-meta-market",
-  "version": "0.9.1-next.2",
+  "version": "0.9.1-next.3",
   "type": "module",
   "description": "A Web4 inter-system layer: independently operated harness instances recognise each other as peers, conduct bounded and refusable dialogues, align their meta-packages to a shared 24-zone intent map, and exchange those packages as reviewable, reversible patches.",
   "license": "MIT",
