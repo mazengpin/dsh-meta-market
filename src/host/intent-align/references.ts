@@ -28,6 +28,7 @@
  */
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { PLUGINS_SRC, PROFILE_ROOT, HARNESS_ROOT, PROGRAM_WORKSPACE } from '../../host/roots.ts'
 import { join } from 'node:path'
 import type {
   CatalogCitation,
@@ -57,11 +58,11 @@ export const NAMED_STABLE_CANDIDATE = 'dsh-market'
 export const SELF_ID = 'dsh-meta-market'
 
 /** The deepseek-root checkout, as the default roots. Absolute because the plugin runs from anywhere. */
-const DEFAULT_PLUGINS_SRC = '<home>/Projects/deepseek-root/plugins-src'
-const DEFAULT_PROFILE_ROOT = '<home>/Projects/deepseek-root/profiles-tree/personal-dev'
-const DEFAULT_HARNESS_ROOT = '<home>/Projects/deepseek-root/deepseek-harness'
+const DEFAULT_PLUGINS_SRC = PLUGINS_SRC
+const DEFAULT_PROFILE_ROOT = PROFILE_ROOT
+const DEFAULT_HARNESS_ROOT = HARNESS_ROOT
 const DEFAULT_CATALOG =
-  '<home>/Projects/deepseek-root/profiles-tree/personal-dev/dsh-meta-evolve_INIT_WORKSPACE/research/cache/plugins-2026-10-12.json'
+  join(PROGRAM_WORKSPACE, 'research/cache/plugins-2026-10-12.json')
 
 /** The subset of a `package.json` this module reads. */
 interface Manifest {

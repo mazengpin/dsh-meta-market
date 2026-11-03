@@ -44,7 +44,7 @@
     }
   },
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && node scripts/sanitize-lib.mjs",
     "typecheck": "tsc --noEmit",
     "verify": "node verify/hosting.mjs && node src/host/verify/host-half.mjs && node src/host/verify/negative-control.mjs && node src/host/safety/verify/implemented-sweep.mjs && node src/host/safety/verify/barrel-check.mjs && node src/host/safety/verify/disclosure.mjs && node src/host/safety/verify/attacker.mjs && node src/host/registry/verify/census.mjs && node src/host/dialogue/verify/two-instance-dialogue.mjs && node src/host/intent-align/verify/gate-driver.mjs && node src/host/providers/verify/check-window.mjs && node verify/leak-scan.mjs",
     "verify:leak": "node verify/leak-scan.mjs",
