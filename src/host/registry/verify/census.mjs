@@ -26,7 +26,11 @@
  *   node --experimental-strip-types src/host/registry/verify/census.mjs
  *
  * Flags: `--offline` skips the live probes (routes then read NOT MEASURED), and
- * `--no-write` keeps the driver from refreshing `last-census.json`.
+ * `--no-write` keeps the driver from refreshing `verify-output/last-census.json`.
+ *
+ * THE REPORT IS WRITTEN OUTSIDE `src/` ON PURPOSE. It is a timestamped run artifact, and while it lived
+ * beside this file a `files: ["src"]` package shipped it — so every pack listed a different file count
+ * and a staged copy could never be byte-identical to source.
  *
  * Exit codes: 0 every assertion passed · 1 an assertion disagreed · 3 instrument
  * failure (a half did not load, or fewer assertions ran than expected).
@@ -34,7 +38,7 @@
  * @module dsh-meta-market/host/registry/verify
  */
 
-import { existsSync, writeFileSync } from 'node:fs'
+import {existsSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -44,6 +48,9 @@ import { resolveCloneRoot, resolveProfileDir, resolveProfileDirFrom } from '../p
 import { openRegistry, resetRegistry } from '../index.ts'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
+const OUT_DIR = resolve(HERE, '../../../../verify-output')
+const OUT = resolve(OUT_DIR, 'last-census.json')
+mkdirSync(OUT_DIR, { recursive: true })
 const args = new Set(process.argv.slice(2))
 const offline = args.has('--offline')
 const write = !args.has('--no-write')
@@ -276,8 +283,8 @@ if (write) {
     snapshot: snapshot.census === null ? null : { identity: snapshot.census.identity },
     censusRows: registry.census(),
   }
-  writeFileSync(resolve(HERE, 'last-census.json'), `${JSON.stringify(report, null, 2)}\n`)
-  console.log(`report written: ${resolve(HERE, 'last-census.json')}`)
+  writeFileSync(OUT, `${JSON.stringify(report, null, 2)}\n`)
+  console.log(`report written: ${OUT}`)
 }
 
 process.exit(failed.length === 0 ? 0 : 1)
