@@ -1,6 +1,6 @@
 # ROADMAP — dsh-meta-market
 
-**Version `0.9.1-next.1` is a PRE-RELEASE.** It is built locally for the `next` dist-tag and it is **NOT published to npm yet**; it is under active development: the surface below is what `1.0.0` still requires, not a wish list appended after the fact.
+**Version `0.9.1-next.2` is a PRE-RELEASE.** It is built locally for the `next` dist-tag and it is **NOT published to npm yet**; it is under active development: the surface below is what `1.0.0` still requires, not a wish list appended after the fact.
 
 ## What this package is
 
@@ -8,7 +8,7 @@ The Web4 inter-system layer: peers recognise each other, hold bounded refusable 
 
 ## What is measured today
 
-`pnpm run verify` runs 11 harnesses green: hosting 18 of 18, host-half 39 passed / 0 failed, negative-control 3 of 3 mutations caught with `lib/index.js` restored byte-identical, census 15 of 15, dialogue 36 of 36, gate 29 of 29, window 13 of 13; `npm pack --dry-run` 127 files / 2.5 MB.
+`pnpm run verify` runs 11 harnesses green: hosting 18 of 18, host-half 39 passed / 0 failed, negative-control 3 of 3 mutations caught with `lib/index.js` restored byte-identical, census 15 of 15, dialogue 36 of 36, gate 29 of 29, window 13 of 13; `npm pack` of this release: **133 files** (the 131 staged paths plus the two `research-*.md` documents, VERIFIED from the packed tarball).
 
 ## What 1.0.0 still requires
 

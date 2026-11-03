@@ -1,6 +1,6 @@
-# dsh-meta-market — 0.9.1-next.1 pre-release
+# dsh-meta-market — 0.9.1-next.2 pre-release
 
-> **Status: PRE-RELEASE `0.9.1-next.1` — built locally, NOT yet published to npm.** The intended dist-tag is `next`, not `latest`; the tarball is produced in `pre_release/_artifacts/` and publishing is an owner step, never performed by this repository.
+> **Status: PRE-RELEASE `0.9.1-next.2` — built locally, NOT yet published to npm.** The intended dist-tag is `next`, not `latest`; the tarball is produced in `pre_release/_artifacts/` and publishing is an owner step, never performed by this repository.
 > Its API, wire records and panel contracts may change between `0.9.x` releases, and each package carries its own `ROADMAP.md` naming what `1.0.0` still requires.
 > A published tarball is a snapshot of a moving surface: read `ROADMAP.md` before depending on a shape.
 
