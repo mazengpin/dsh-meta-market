@@ -1,0 +1,1892 @@
+{
+  "at": "2026-11-03T19:46:55.599Z",
+  "offline": false,
+  "checks": [
+    {
+      "name": "installed half loaded",
+      "ok": true,
+      "detail": "62 dependencies"
+    },
+    {
+      "name": "every dependency with a link: spec has a checkout on disk",
+      "ok": true,
+      "detail": "57/62 dependencies have a checkout (5 are registry specs)"
+    },
+    {
+      "name": "at least one plugin was probed and answered (the probe is a reading, not an unmounted harness)",
+      "ok": true,
+      "detail": "22/62 answered"
+    },
+    {
+      "name": "bundle entries that are not dependencies are the official @deepseek-ai bundles",
+      "ok": true,
+      "detail": "57/64 bundles name a profile dependency; 7 do not"
+    },
+    {
+      "name": "read-only probe policy skips a mutating path",
+      "ok": true,
+      "detail": "lastSegment(/dsh-market/install) = \"install\""
+    },
+    {
+      "name": "read-only probe policy does NOT skip an obviously read path",
+      "ok": true,
+      "detail": "lastSegment(/intent-map/api/map) = \"map\""
+    },
+    {
+      "name": "profile resolves from the BUNDLE layout (lib/) to a manifest that EXISTS",
+      "ok": true,
+      "detail": "lib/ → C:\\Users\\0000\\Projects\\deepseek-root\\profiles-tree\\personal-dev (searched 4); source → C:\\Users\\0000\\Projects\\deepseek-root\\profiles-tree\\personal-dev"
+    },
+    {
+      "name": "the shape search reports NOT FOUND outside the checkout rather than guessing",
+      "ok": true,
+      "detail": "C:/Windows/System32 → null (searched 3)"
+    },
+    {
+      "name": "live catalog loaded with rows",
+      "ok": true,
+      "detail": "5785 rows"
+    },
+    {
+      "name": "live rows equal the file count header",
+      "ok": true,
+      "detail": "5785 vs 5785"
+    },
+    {
+      "name": "snapshot is the 4,527-row census the program cites",
+      "ok": true,
+      "detail": "4527"
+    },
+    {
+      "name": "snapshot rows equal the file count header",
+      "ok": true,
+      "detail": "4527 vs 4527"
+    },
+    {
+      "name": "a duplicated name returns its row count and refuses to be read as one row",
+      "ok": true,
+      "detail": "4 rows for dsh-cost-meter"
+    },
+    {
+      "name": "byNpm finds a row that byName would miss",
+      "ok": true,
+      "detail": "1 rows"
+    },
+    {
+      "name": "intersection is measured with a denominator",
+      "ok": true,
+      "detail": "17/62"
+    }
+  ],
+  "installed": {
+    "dependencies": 62,
+    "withCheckout": 57,
+    "manifestSha256": "3c27cc04b084b67952b2d4390dbf382930c318e171e3d3866929dea01f44fced",
+    "manifestMtime": "2026-11-03T14:10:33.034Z",
+    "bundles": 64,
+    "bundlesListed": 57,
+    "nodeModules": {
+      "entries": 249,
+      "directories": 186,
+      "symlinks": 61,
+      "linksWithoutDependency": [
+        "dsh-intent-board",
+        "dsh-local-worker",
+        "dsh-qlora-console",
+        "dsh-usage-statistics-panel"
+      ],
+      "dependenciesWithoutLink": []
+    },
+    "serving": 22,
+    "probed": 40,
+    "entries": [
+      {
+        "dependency": "clearai-dsh",
+        "spec": "link:../../plugins-src/clearai-dsh/dist/clearai-dsh",
+        "packageName": "clearai-dsh",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-agent-team-cap",
+        "spec": "link:../../plugins-src/dsh-agent-team-cap",
+        "packageName": "dsh-agent-team-cap",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/agent-team-cap/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-better-sidebar",
+        "spec": "link:../../plugins-src/DSH-better-sidebar",
+        "packageName": "dsh-better-sidebar",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/sidebar/bundle",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/sidebar/api",
+            "kind": "prefix",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/sidebar/upload",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"upload\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/sidebar/archive",
+            "kind": "exact",
+            "status": 400,
+            "skipped": null
+          },
+          {
+            "path": "/sidebar/file",
+            "kind": "prefix",
+            "status": 400,
+            "skipped": null
+          },
+          {
+            "path": "/sidebar/html",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/sidebar/ws/agent-opens",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/sidebar/ws/fs-watch",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-caveman",
+        "spec": "link:../../plugins-src/dsh-caveman",
+        "packageName": "dsh-caveman",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/caveman/status",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/caveman/state",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-context",
+        "spec": "link:../../plugins-src/dsh-context",
+        "packageName": "dsh-context",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-context-mode",
+        "spec": "github:icanfinish11/dsh-context-mode#587430c1590791873b68a620eb9a5f25ce62d3b5",
+        "packageName": null,
+        "checkoutExists": null,
+        "clientPresent": null,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-context-out-controller",
+        "spec": "link:../../plugins-src/dsh-context-out-controller",
+        "packageName": "dsh-context-out-controller",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-context-routing",
+        "spec": "link:../../plugins-src/dsh-context-routing",
+        "packageName": "dsh-context-routing",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/context-routing/api/subagent/surface",
+            "kind": "prefix",
+            "status": 400,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-context-select",
+        "spec": "link:../../plugins-src/dsh-context-select",
+        "packageName": "dsh-context-select",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/context-select/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-context-stats",
+        "spec": "link:../../plugins-src/dsh-context-stats",
+        "packageName": "dsh-context-stats",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/context-stats/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/api/dsh-context-stats/lvl1/status",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-corpus-collide",
+        "spec": "link:../../plugins-src/dsh-corpus-collide",
+        "packageName": "dsh-corpus-collide",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/corpus-collide/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-decision-log",
+        "spec": "link:../../plugins-src/dsh-decision-log",
+        "packageName": "dsh-decision-log",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/decision-log/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-download-mode",
+        "spec": "link:../../plugins-src/dsh-download-mode",
+        "packageName": "dsh-download-mode",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/download-mode/api",
+            "kind": "prefix",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-ego-browser",
+        "spec": "link:../../plugins-src/dsh-ego-browser",
+        "packageName": "dsh-ego-browser",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/api/ego/spaces",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/stream",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/input",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/close",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/flush",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/raise",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/login-import",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"login-import\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/api/ego/health",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/watch/status",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/video/status",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/ego/video",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/ego/api",
+            "kind": "prefix",
+            "status": 405,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-evolution-console",
+        "spec": "link:../../plugins-src/dsh-evolution-console",
+        "packageName": "dsh-evolution-console",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/evolution/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-fold-admission",
+        "spec": "link:../../plugins-src/dsh-fold-admission",
+        "packageName": "dsh-fold-admission",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-free-search",
+        "spec": "0.9.1",
+        "packageName": null,
+        "checkoutExists": null,
+        "clientPresent": null,
+        "bundleListed": false,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-human-qa",
+        "spec": "link:../../plugins-src/dsh-human-qa",
+        "packageName": "dsh-human-qa",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/human-qa",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-ide-git",
+        "spec": "link:../../plugins-src/dsh-ide-git",
+        "packageName": "dsh-ide-git",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/dsh-ide-git/api",
+            "kind": "prefix",
+            "status": 405,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-image-gen",
+        "spec": "0.9.1",
+        "packageName": null,
+        "checkoutExists": null,
+        "clientPresent": null,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-intent-desk",
+        "spec": "link:../../plugins-src/dsh-intent-desk",
+        "packageName": "dsh-intent-desk",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/intent-desk/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/census",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/plan",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/linkage",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/rot?limit=1",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/cost",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-intent-dispatch",
+        "spec": "link:../../plugins-src/dsh-intent-dispatch",
+        "packageName": "dsh-intent-dispatch",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": false,
+        "routes": [
+          {
+            "path": "/plugins/dsh-intent-dispatch/state",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-intent-map",
+        "spec": "link:../../plugins-src/dsh-intent-map",
+        "packageName": "dsh-intent-map",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/intent-map/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-intent-mode",
+        "spec": "link:../../plugins-src/dsh-intent-mode",
+        "packageName": "dsh-intent-mode",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/intent-mode/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/inspector/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/inspector/api/${INSPECTOR_ROUTES.address}",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/intent-mode/ordering/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-janitor",
+        "spec": "0.1.0",
+        "packageName": null,
+        "checkoutExists": null,
+        "clientPresent": null,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-lvl1-gate",
+        "spec": "link:../../plugins-src/dsh-lvl1-gate",
+        "packageName": "dsh-lvl1-gate",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/lvl1-gate/api/align",
+            "kind": "exact",
+            "status": 400,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/sessions",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/skills",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"skills\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/lvl1-gate/api/gate-session",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/status",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/roster",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/decide",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/models",
+            "kind": "exact",
+            "status": null,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/models/control",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-memento",
+        "spec": "link:../../plugins-src/dsh-memento",
+        "packageName": "dsh-memento",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-memory-delta",
+        "spec": "link:../../plugins-src/dsh-memory-delta",
+        "packageName": "dsh-memory-delta",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/dsh-memory-delta/search",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-memory-delta/state",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-memory-delta/action",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-memory-injector",
+        "spec": "link:../../plugins-src/dsh-memory-injector",
+        "packageName": "dsh-memory-injector",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/memory-inject/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-meta-community",
+        "spec": "link:../../plugins-src/dsh-meta-community",
+        "packageName": "dsh-meta-community",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/meta-community/api",
+            "kind": "prefix",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-meta-context",
+        "spec": "link:../../plugins-src/dsh-meta-context",
+        "packageName": "dsh-meta-context",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/meta-context/api",
+            "kind": "prefix",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-meta-evolve",
+        "spec": "link:../../plugins-src/dsh-meta-evolve",
+        "packageName": "dsh-meta-evolve",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-meta-intent",
+        "spec": "link:../../plugins-src/dsh-meta-intent",
+        "packageName": "dsh-meta-intent",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/meta-intent/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-meta-market",
+        "spec": "link:../../plugins-src/dsh-meta-market",
+        "packageName": "dsh-meta-market",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/tools-skills-evolve",
+            "kind": "prefix",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"tools-skills-evolve\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/patch/status",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/verify",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/stage",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/revert",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/promotion-rule",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/self-check",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/quarantine",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/read",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/patch/blindness",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/meta-market/api",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/intent-map/api/map",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/intent-mode/api/packet",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"packet\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/intent-mode/api/map",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/plan-rag/api/status",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/agent-team-cap/api/state",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-meta-memory",
+        "spec": "link:../../plugins-src/dsh-meta-memory",
+        "packageName": "dsh-meta-memory",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/meta-memory",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/api/status",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/census",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/members",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/entries",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/query",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/audit",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/proposals",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/store",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/snapshot",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/add",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/replace",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/memento/remove",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"remove\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/api/memento/consolidate",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/delta/state",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/delta/search",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/delta/inject-payload",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/delta/write",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"write\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/api/delta/promote",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"promote\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/api/inject/status",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/inject/verdicts",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/api/inject/decide",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-meta-research",
+        "spec": "link:../../plugins-src/dsh-meta-research",
+        "packageName": "dsh-meta-research",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/meta-research/api/last",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/meta-research/api/run",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"run\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-meta-skills",
+        "spec": "link:../../plugins-src/dsh-meta-skills",
+        "packageName": "dsh-meta-skills",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/meta-skills",
+            "kind": "prefix",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"meta-skills\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          }
+        ],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-mock-random",
+        "spec": "link:../../plugins-src/dsh-mock-random",
+        "packageName": "dsh-mock-random",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": false,
+        "routes": [
+          {
+            "path": "/mock-random/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-model-lifecycle",
+        "spec": "link:../../plugins-src/dsh-model-lifecycle",
+        "packageName": "dsh-model-lifecycle",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": false,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-ops",
+        "spec": "link:../../plugins-src/dsh-ops",
+        "packageName": "dsh-ops",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-our-free-model",
+        "spec": "link:../../plugins-src/dsh-our-free-model",
+        "packageName": "dsh-our-free-model",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-plan-map",
+        "spec": "link:../../plugins-src/dsh-plan-map",
+        "packageName": "dsh-plan-map",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": false,
+        "routes": [
+          {
+            "path": "/plan-map/api/graph",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/plan-map/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-plan-rag",
+        "spec": "link:../../plugins-src/dsh-plan-rag",
+        "packageName": "dsh-plan-rag",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/plan-rag/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-primer",
+        "spec": "link:../../plugins-src/dsh-primer",
+        "packageName": "dsh-primer",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-profile-flow",
+        "spec": "link:../../plugins-src/dsh-profile-flow",
+        "packageName": "dsh-profile-flow",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-recall-console",
+        "spec": "link:../../plugins-src/dsh-recall-console",
+        "packageName": "dsh-recall-console",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/recall-console/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-sentinel",
+        "spec": "link:../../plugins-src/dsh-sentinel",
+        "packageName": "dsh-sentinel",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/plugins/dsh-sentinel/state",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/plugins/dsh-sentinel/dashboard",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/plugins/dsh-sentinel/hook",
+            "kind": "exact",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/plugins/dsh-sentinel/cancel",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"cancel\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-skill-evolution",
+        "spec": "link:../../plugins-src/dsh-skill-evolution",
+        "packageName": "dsh-skill-evolution",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-skill-generator",
+        "spec": "link:../../plugins-src/dsh-skill-generator",
+        "packageName": "dsh-skill-generator",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-skill-studio",
+        "spec": "link:../../plugins-src/dsh-skill-studio",
+        "packageName": "dsh-skill-studio",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-spec-wiki",
+        "spec": "link:../../plugins-src/dsh-spec-wiki",
+        "packageName": "dsh-spec-wiki",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/spec-wiki/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/api/session/create",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"create\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/save",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"save\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/decision-log/api/list",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/plan-rag/api/status",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/system-status/api/models",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/system-status/api/embeddings",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/system-status/api/vram-forecast",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-superagent",
+        "spec": "link:../../plugins-src/dsh-superagent-prototype",
+        "packageName": "dsh-superagent",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/orchestrator",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-system-status",
+        "spec": "link:../../plugins-src/dsh-system-status",
+        "packageName": "dsh-system-status",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/system-status/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-systems-explorer",
+        "spec": "link:../../plugins-src/dsh-systems-explorer",
+        "packageName": "dsh-systems-explorer",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/systems-explorer/api",
+            "kind": "prefix",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-team-preheat",
+        "spec": "link:../../plugins-src/dsh-team-preheat",
+        "packageName": "dsh-team-preheat",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/team-preheat/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dsh-tools-skills-evolve",
+        "spec": "link:../../plugins-src/dsh-tools-skills-evolve",
+        "packageName": "dsh-tools-skills-evolve",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/tools-skills-evolve",
+            "kind": "prefix",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"tools-skills-evolve\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          }
+        ],
+        "servesRoute": null
+      },
+      {
+        "dependency": "dsh-visual-workflow",
+        "spec": "link:../../plugins-src/dsh-visual-workflow",
+        "packageName": "dsh-visual-workflow",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/visual-workflow",
+            "kind": "prefix",
+            "status": 405,
+            "skipped": null
+          },
+          {
+            "path": "/v1/chat/completions",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          },
+          {
+            "path": "/v1/models",
+            "kind": "exact",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-visual-workflow-lvl1",
+        "spec": "link:../../plugins-src/dsh-visual-workflow-lvl1",
+        "packageName": "dsh-visual-workflow-lvl1",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/visual-workflow-lvl1/api/state",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/status",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/sessions",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/roster",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/lvl1-gate/api/skills",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"skills\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/context-out/api/state",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          },
+          {
+            "path": "/skill-studio/api/members",
+            "kind": "exact",
+            "status": 200,
+            "skipped": null
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "dsh-zone-recalc",
+        "spec": "link:../../plugins-src/dsh-zone-recalc",
+        "packageName": "dsh-zone-recalc",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/zone-recalc/api",
+            "kind": "prefix",
+            "status": 404,
+            "skipped": null
+          }
+        ],
+        "servesRoute": false
+      },
+      {
+        "dependency": "dshmarket",
+        "spec": "link:../../plugins-src/dsh-market",
+        "packageName": "dshmarket",
+        "checkoutExists": true,
+        "clientPresent": true,
+        "bundleListed": true,
+        "routes": [
+          {
+            "path": "/dsh-market/api/v1/capabilities",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/api/v1/updates/summary",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/api/v1/updates",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"updates\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/api/v1/operations",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/api/v1/rollback",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"rollback\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/api/v1/restart",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"restart\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/backup",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"backup\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/restore",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"restore\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/webdav",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/gist",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/registry",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/discovery-compatibility",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/find-compatible",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/installed",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"installed\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/check",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/bundle-order",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/presets",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"presets\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/snapshots",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/restore-snapshot",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"restore-snapshot\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/delete-snapshot",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"delete-snapshot\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/use-skin",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/toggle",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"toggle\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/note",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"note\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/favorite",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"favorite\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/block",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"block\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/update-exempt",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"update-exempt\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/dismiss-broken",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"dismiss-broken\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/groups",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/status",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/logs",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/updates",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"updates\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/changelog",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/migrate-source",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"migrate-source\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/update",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"update\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          },
+          {
+            "path": "/dsh-market/setup-pnpm",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/channel",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/region",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/github-proxy",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/build-env",
+            "kind": "exact",
+            "status": 401,
+            "skipped": null
+          },
+          {
+            "path": "/dsh-market/self-uninstall",
+            "kind": "exact",
+            "status": null,
+            "skipped": "read-only probe policy: last segment \"self-uninstall\" names a mutating operation, so this path was NOT probed on the owner's live session"
+          }
+        ],
+        "servesRoute": true
+      },
+      {
+        "dependency": "rolebox",
+        "spec": "2.2.0",
+        "packageName": null,
+        "checkoutExists": null,
+        "clientPresent": null,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      },
+      {
+        "dependency": "s1cap",
+        "spec": "link:../../plugins-src/s1cap",
+        "packageName": "s1cap",
+        "checkoutExists": true,
+        "clientPresent": false,
+        "bundleListed": true,
+        "routes": [],
+        "servesRoute": null
+      }
+    ]
+  },
+  "downloadable": {
+    "identity": {
+      "source": "live",
+      "path": "C:\\Users\\0000\\Projects\\deepseek-root\\plugins-src\\dsh-meta-market\\src\\host\\registry\\data\\plugins-live-2026-10-17.json",
+      "url": "https://awesome-dsh-plugin.com/plugins.json",
+      "bytes": 7191672,
+      "fetchedAt": "2026-10-17T21:43:14.384Z",
+      "sha256": "f13ace76ad09dc93ef85e47791c1951eb686a2de2c2a114edf93f8c94bef9b06",
+      "rows": 5785,
+      "headerCount": 5785,
+      "updated": "2026-10-17",
+      "distinctNames": 5368,
+      "duplicateNameGroups": 272,
+      "duplicateNameRows": 689,
+      "nameOrNpmDivergent": 983,
+      "rowsWithNpm": 2604
+    },
+    "duplicateNameGroups": 272
+  },
+  "snapshot": {
+    "identity": {
+      "source": "snapshot",
+      "path": "C:\\Users\\0000\\Projects\\deepseek-root\\profiles-tree\\personal-dev\\dsh-meta-evolve_INIT_WORKSPACE\\research\\cache\\plugins-2026-10-12.json",
+      "url": null,
+      "bytes": 5479223,
+      "fetchedAt": "2026-10-13T02:05:15.612Z",
+      "sha256": "473f3e66b8ad274b3c8a9770cfcef05fa6639fd50b189479feb144917e9ac3cd",
+      "rows": 4527,
+      "headerCount": 4527,
+      "updated": "2026-10-12",
+      "distinctNames": 4226,
+      "duplicateNameGroups": 198,
+      "duplicateNameRows": 499,
+      "nameOrNpmDivergent": 874,
+      "rowsWithNpm": 2342
+    }
+  },
+  "censusRows": [
+    {
+      "numerator": 57,
+      "denominator": 62,
+      "population": "dependencies entries in the live profile manifest whose checkout exists on disk",
+      "at": "2026-11-03T19:46:51.890Z"
+    },
+    {
+      "numerator": 57,
+      "denominator": 64,
+      "population": "dsh.profile.bundles entries naming a dependency of this profile, against all bundle entries (the remainder are official @deepseek-ai bundles)",
+      "at": "2026-11-03T19:46:51.890Z"
+    },
+    {
+      "numerator": 5785,
+      "denominator": 5785,
+      "population": "rows parsed from the downloadable live catalog against the file's own count header",
+      "at": "2026-11-03T19:46:51.890Z"
+    },
+    {
+      "numerator": 2604,
+      "denominator": 5785,
+      "population": "downloadable rows carrying an npm field against downloadable rows",
+      "at": "2026-11-03T19:46:51.890Z"
+    },
+    {
+      "numerator": 983,
+      "denominator": 2604,
+      "population": "downloadable rows whose npm differs from name, against rows carrying an npm field",
+      "at": "2026-11-03T19:46:51.890Z"
+    },
+    {
+      "numerator": 689,
+      "denominator": 5785,
+      "population": "downloadable rows sharing a name with another row, against downloadable rows",
+      "at": "2026-11-03T19:46:51.890Z"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "window": "meta-plugins",
+  "elapsedMs": 6617,
+  "unavailable": null,
+  "census": {
+    "numerator": 73,
+    "denominator": 73,
+    "population": "73 plugin candidates: the 62 of 62 dependencies declared by the live personal-dev profile manifest that the registry could resolve (read in both halves by ../registry/ at 2026-11-03T19:39:58.609Z), plus the 7 identities the profile declares it LOADS as `dsh.profile.bundles` without listing them as dependencies (the `@deepseek-ai/*` official packages are among these), plus the 4 of 4 catalog-only plugins that the intent module cites together with their own catalog description (2 it records as colliding, 1 kept as the negative control that must pass, and 1 it records as a KNOWN FALSE NEGATIVE which the gate admits). The 5785-row downloadable catalog was NOT signed for this window, so a row that is not listed here was not measured — which is not the same as measured and rejected. The reference populations the gate compared against are 47 stable, 7 official and 6 meta.",
+    "at": "2026-11-03T19:39:58.609Z"
+  },
+  "controlIds": [
+    "meta-plugins-refresh:read",
+    "meta-plugins-collisions-only:read"
+  ],
+  "falsifierCount": 8,
+  "itemCount": 73,
+  "split": {
+    "installed": 68,
+    "downloadable": 4,
+    "notMeasured": 1,
+    "kindExists": 73,
+    "kindPlan": 0,
+    "kindFuture": 0
+  },
+  "splitCloses": true,
+  "verdicts": {
+    "aligned": 64,
+    "collides": 2,
+    "notMeasured": 7
+  },
+  "verdictsClose": true,
+  "intentMethods": {
+    "embedding": 0,
+    "token": 66,
+    "none": 7
+  },
+  "collisions": [
+    {
+      "id": "dsh-plugin-marketplace@PetCT",
+      "name": "dsh-plugin-marketplace",
+      "collidesWith": [
+        "dsh-market"
+      ],
+      "why": "its description matches stable dsh-market at 0.6794 (idf-weighted token text cosine, bar 0.3407, 5 shared informative terms); shared: browse, click, community, inside, search. The refusal runs FROM this candidate TO dsh-market; dsh-market being refused by some other rule elsewhere does not change this direction."
+    },
+    {
+      "id": "dsh-plugin-marketplace@Scorp1o117",
+      "name": "dsh-plugin-marketplace",
+      "collidesWith": [
+        "dsh-market"
+      ],
+      "why": "its description matches stable dsh-market at 0.4504 (idf-weighted token text cosine, bar 0.3407, 3 shared informative terms); shared: browse, install, search. The refusal runs FROM this candidate TO dsh-market; dsh-market being refused by some other rule elsewhere does not change this direction."
+    }
+  ],
+  "collisionCount": 2,
+  "collisionRequirementMet": true,
+  "sampleAligned": [
+    {
+      "id": "clearai-dsh",
+      "kind": "exists",
+      "installed": true,
+      "downloadable": true
+    },
+    {
+      "id": "dsh-agent-team-cap",
+      "kind": "exists",
+      "installed": true,
+      "downloadable": false
+    },
+    {
+      "id": "dsh-better-sidebar",
+      "kind": "exists",
+      "installed": true,
+      "downloadable": true
+    }
+  ],
+  "sampleNotMeasured": [
+    {
+      "id": "@deepseek-ai/dsh-base",
+      "why": "the registry holds no text for this identity other than its own name, and a name is not an intent: signing it would let two vendor-prefixed names collide on a shared prefix word"
+    },
+    {
+      "id": "@deepseek-ai/dsh-web-app",
+      "why": "the registry holds no text for this identity other than its own name, and a name is not an intent: signing it would let two vendor-prefixed names collide on a shared prefix word"
+    },
+    {
+      "id": "@deepseek-ai/dsh-experimental-agent-team-profile",
+      "why": "the registry holds no text for this identity other than its own name, and a name is not an intent: signing it would let two vendor-prefixed names collide on a shared prefix word"
+    }
+  ]
+}

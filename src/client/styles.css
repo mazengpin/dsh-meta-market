@@ -1,0 +1,185 @@
+/**
+ * The window's stylesheet — shell chrome only. The view layer owns its own
+ * `windows/windows.css`, which the client entry imports separately.
+ *
+ * PLAIN CSS RATHER THAN CSS MODULES, following `dsh-intent-map`: every class is
+ * namespaced `mm-`, so there is nothing to hash and a module map would add a
+ * lookup for no benefit. The build inlines this as ONE `<style data-plugin="dsh-meta-market">`
+ * tag at factory execution.
+ *
+ * THE SCROLLING IS THE PART THIS FILE EXISTS FOR. The owner has an open complaint
+ * about a sibling plugin whose output is unscrollable, and the cause of that class
+ * is always the same: a flex child with `overflow: auto` and no `min-height: 0`,
+ * so the child reports its CONTENT height and the overflow never engages. So:
+ *
+ *   .mm-window  is a fixed-height flex COLUMN (`height: 100%`, `min-height: 0`);
+ *   .mm-panel   is the flex child that takes the remaining height and may shrink;
+ *   .mm-rows    is the box that actually overflows (`overflow-y: auto`) and it
+ *               carries `min-height: 0` so the browser does not floor it at its
+ *               content height.
+ *
+ * The chrome (header, rails, census strip) does not scroll away with the rows,
+ * which is what makes the rail usable on a window with 4,500 rows in it.
+ *
+ * Colours are declared against `currentColor` and rgba neutrals so the window
+ * follows the shell's light/dark switch rather than pinning one theme.
+ */
+
+.mm-window {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  padding: 14px 16px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: inherit;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.mm-head { flex: 0 0 auto; margin-bottom: 10px; }
+.mm-head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.mm-h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+.mm-sub { margin: 0; opacity: 0.72; max-width: 92ch; }
+
+/* ---- rails ------------------------------------------------------------- */
+
+.mm-tabs {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 0;
+}
+.mm-tabs-primary { border-bottom: 1px solid rgba(128, 128, 128, 0.26); }
+.mm-tabs-advanced {
+  padding-left: 14px;
+  border-left: 2px solid rgba(128, 128, 128, 0.26);
+  margin-left: 2px;
+}
+
+.mm-tab {
+  padding: 4px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.34);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.mm-tab:hover { background: rgba(128, 128, 128, 0.14); }
+.mm-tab-active {
+  border-color: rgba(80, 140, 220, 0.85);
+  background: rgba(80, 140, 220, 0.18);
+  font-weight: 600;
+}
+
+/* ---- the panel and the ONE scroll container ---------------------------- */
+
+.mm-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-top: 8px;
+  overflow: hidden;
+}
+
+.mm-rows {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding-bottom: 24px;
+}
+
+/* A belt-and-braces scroll for the case the page gives the window no height at
+   all: then `.mm-panel` is not height-constrained, `.mm-rows` cannot shrink, and
+   the window's own box must scroll instead of clipping silently. */
+.mm-window > .mm-panel { overscroll-behavior: contain; }
+
+/* ---- census strip ------------------------------------------------------ */
+
+.mm-census {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0 8px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+  font-size: 12px;
+}
+.mm-census-count { font-variant-numeric: tabular-nums; }
+.mm-census-population { opacity: 0.8; max-width: 62ch; }
+
+.mm-muted { opacity: 0.62; }
+.mm-note { opacity: 0.86; margin: 6px 0; }
+.mm-err { color: #d9534f; margin: 6px 0; }
+.mm-warn { color: #c8860d; margin: 6px 0; }
+.mm-warnp { color: #c8860d; margin: 6px 0; }
+
+/* ---- chips ------------------------------------------------------------- */
+
+.mm-chip {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 11.5px;
+}
+.mm-chip-idle { background: rgba(128, 128, 128, 0.24); }
+
+/* ---- states ------------------------------------------------------------ */
+
+.mm-state {
+  flex: 0 0 auto;
+  padding: 14px 12px;
+  border: 1px dashed rgba(128, 128, 128, 0.4);
+  border-radius: 8px;
+}
+.mm-state-loading { display: flex; align-items: center; gap: 10px; opacity: 0.8; }
+.mm-state-error { border-color: rgba(217, 83, 79, 0.6); }
+.mm-state-defect { border-color: rgba(217, 83, 79, 0.9); background: rgba(217, 83, 79, 0.08); }
+
+.mm-spinner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(128, 128, 128, 0.3);
+  border-top-color: rgba(80, 140, 220, 0.9);
+  animation: mm-spin 900ms linear infinite;
+}
+@keyframes mm-spin { to { transform: rotate(360deg); } }
+
+/* ---- buttons ----------------------------------------------------------- */
+
+.mm-btn {
+  padding: 3px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 12px;
+}
+.mm-btn:disabled { opacity: 0.45; cursor: default; }
+.mm-btn-primary { border-color: rgba(80, 140, 220, 0.75); }
+
+/* ---- falsifiers -------------------------------------------------------- */
+
+.mm-falsifiers {
+  flex: 0 0 auto;
+  margin-top: 10px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  font-size: 12px;
+}
+.mm-falsifiers > summary { cursor: pointer; opacity: 0.8; }
+.mm-falsifier-list { margin: 6px 0 0; padding-left: 18px; }
+.mm-falsifier { margin-bottom: 6px; }
+.mm-falsifier-claim { display: block; font-weight: 600; }
+.mm-falsifier-how { display: block; opacity: 0.78; }

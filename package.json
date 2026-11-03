@@ -1,0 +1,63 @@
+{
+  "name": "dsh-meta-market",
+  "version": "0.9.0",
+  "type": "module",
+  "description": "A Web4 inter-system layer: independently operated harness instances recognise each other as peers, conduct bounded and refusable dialogues, align their meta-packages to a shared 24-zone intent map, and exchange those packages as reviewable, reversible patches.",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./shared/protocol": "./src/shared/protocol.ts",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/client.js.map",
+    "src",
+    "cordis.patch.yml",
+    "CHARTER.md",
+    "README.md",
+    "LICENSE",
+    "ROADMAP.md"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.2-0 <0.3.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "verify": "node verify/hosting.mjs && node src/host/verify/host-half.mjs && node src/host/verify/negative-control.mjs && node src/host/safety/verify/implemented-sweep.mjs && node src/host/safety/verify/barrel-check.mjs && node src/host/safety/verify/disclosure.mjs && node src/host/safety/verify/attacker.mjs && node src/host/registry/verify/census.mjs && node src/host/dialogue/verify/two-instance-dialogue.mjs && node src/host/intent-align/verify/gate-driver.mjs && node src/host/providers/verify/check-window.mjs",
+    "prepublishOnly": "pnpm run typecheck && pnpm run build && pnpm run verify"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "~18.3.1",
+    "lightningcss": "^1.32.0",
+    "react": "^18.2.0",
+    "tsdown": "^0.22.2",
+    "typescript": "^5.6.0"
+  },
+  "publishConfig": {
+    "tag": "next"
+  },
+  "status": "pre-release"
+}

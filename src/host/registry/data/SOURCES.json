@@ -1,0 +1,24 @@
+{
+  "live": {
+    "url": "https://awesome-dsh-plugin.com/plugins.json",
+    "fetchedAt": "2026-10-17T21:41:34Z",
+    "httpStatus": 200,
+    "bytes": 7191672,
+    "sha256": "f13ace76ad09dc93ef85e47791c1951eb686a2de2c2a114edf93f8c94bef9b06",
+    "rows": 5785,
+    "headerCount": 5785,
+    "updated": "2026-10-17",
+    "path": "src/host/registry/data/plugins-live-2026-10-17.json",
+    "note": "The brief quoted 5,704 rows measured earlier on 2026-10-17. The market grew before this fetch. Both numbers are stated with their clocks; this file is the one the census reads."
+  },
+  "snapshot": {
+    "url": null,
+    "bytes": 5479223,
+    "sha256": "473f3e66b8ad274b3c8a9770cfcef05fa6639fd50b189479feb144917e9ac3cd",
+    "rows": 4527,
+    "headerCount": 4527,
+    "updated": "2026-10-12",
+    "path": "research/cache/plugins-2026-10-12.json",
+    "note": "Owned by the program workspace, not copied into this clone: a second copy would be a second statement of one fact. The registry path resolves it from this clone's location and reports null with a reason when it is absent."
+  }
+}

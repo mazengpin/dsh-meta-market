@@ -1,0 +1,5 @@
+{
+  "//": "Scoped typecheck for src/host/intent-align only. --noEmit, so it cannot clobber lib/ the way a concurrent `pnpm run build` can. This is NOT the whole-tree typecheck; surface-host and shell-client own that.",
+  "extends": "../../../../tsconfig.json",
+  "include": ["../**/*.ts", "../../../../src/shared/protocol.ts"]
+}

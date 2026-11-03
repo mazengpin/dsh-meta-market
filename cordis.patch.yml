@@ -1,0 +1,27 @@
+# dsh-meta-market bundle patch.
+#
+# `dsh.bundle.patch` in package.json points here. A profile that lists this
+# package in `dsh.profile.bundles` merges this layer at boot, and the single
+# `insert` below mounts the plugin's Host half as the loader row `meta-market`.
+# The row `name` is the package name, so the loader resolves `lib/index.js` (the
+# package's `.` export) from the profile's `node_modules` — which is where the
+# relative `link:` dependency puts this checkout.
+#
+# THERE IS EXACTLY ONE `insert` ROW AND NO DISABLED GUARD, so a profile that
+# consumes this package has exactly one row for it and no second mount source
+# can appear by editing this file alone.
+#
+# THIS ROW IS NOT MOUNTED YET, AND THAT IS DELIBERATE. Applying it requires a
+# profile manifest edit and a boot, and the owner's live session on 3083 must not
+# be disturbed. The row is written now so that mounting is a one-line profile
+# change rather than a config authoring task, which is what `D-0053` asks a
+# Cordis-hard-way build to make possible. Stated here rather than left to be
+# inferred, because "a patch file exists" and "the plugin is loaded" are
+# different claims and this program has paid for conflating them.
+#
+# There is no `mcp` row: this plugin registers HTTP routes under its own prefix
+# through `ctx.webServer.register`, and it exposes no Model Context Protocol
+# server. A row for a server that does not exist would be an unresolvable mount.
+- insert:
+    - id: meta-market
+      name: 'dsh-meta-market'

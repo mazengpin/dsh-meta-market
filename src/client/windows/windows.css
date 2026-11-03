@@ -1,0 +1,387 @@
+/*
+ * dsh-meta-market window styles. Owner: windows-client (src/client/windows/**).
+ *
+ * Every selector is under `mm-` so nothing here can reach the shell's own chrome. The shell supplies
+ * the panel and the tab rail; this file supplies only what is inside a window.
+ *
+ * TWO RULES ARE LOAD-BEARING, and both are about honesty rather than looks:
+ * 1. `.mm-rows-scroll` is the scroll container. The rows table is wide and long, and a table that
+ *    overflows a panel without its own scrollbar is the "unscrollable output" failure this program
+ *    has already paid for once. `max-height` plus `overflow: auto` keeps the panel fixed and scrolls
+ *    the rows inside it, and the sticky header means the column names survive the scroll.
+ * 2. `.mm-absent` and `.mm-warn` must stay VISUALLY DISTINCT from `.mm-value` and `.mm-flag-no`.
+ *    "NOT MEASURED" is not a value, and a reader who cannot tell it apart at a glance will read an
+ *    absent reading as a measurement. The absent token is therefore italic, dimmed and letter-spaced
+ *    rather than merely grey.
+ *
+ * Nothing in this file is required for correctness: the views render every field and every honest
+ * token with no stylesheet at all. This file changes how a reader SEES the difference, not what the
+ * window SAYS.
+ */
+
+.mm-window {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  min-width: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.mm-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.mm-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.mm-description,
+.mm-generated,
+.mm-note {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.mm-generated,
+.mm-item-id,
+.mm-item-source,
+.mm-alignment-evidence,
+.mm-falsifier-how {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.mm-note {
+  border-left: 2px solid currentColor;
+  padding-left: 0.5rem;
+}
+
+.mm-kind {
+  display: inline-block;
+  padding: 0 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mm-kind-exists {
+  font-weight: 700;
+}
+
+.mm-kind-plan {
+  font-style: italic;
+}
+
+.mm-kind-future {
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.mm-census {
+  margin: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+}
+
+.mm-census-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.mm-warnings {
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.mm-warnings-heading,
+.mm-heading {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.mm-warnings-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.mm-warn {
+  font-weight: 600;
+  text-decoration: underline dotted;
+}
+
+.mm-absent {
+  font-style: italic;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+.mm-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The scroll container: the one rule the "unscrollable panel" finding requires. */
+.mm-rows-scroll {
+  max-height: 32rem;
+  overflow: auto;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+}
+
+.mm-rows {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  font-size: 0.8rem;
+}
+
+.mm-rows .mm-col,
+.mm-rows thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: left;
+  white-space: nowrap;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid currentColor;
+  background: Canvas;
+  background: color-mix(in srgb, canvas 92%, currentColor 8%);
+}
+
+.mm-rows td,
+.mm-rows th.mm-cell {
+  vertical-align: top;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+}
+
+.mm-cell-name {
+  text-align: left;
+  min-width: 12rem;
+  max-width: 20rem;
+}
+
+.mm-cell-zones,
+.mm-cell-collides {
+  min-width: 12rem;
+}
+
+.mm-row-exists {
+  background: transparent;
+}
+
+.mm-row-plan,
+.mm-row-future {
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+
+.mm-item-name {
+  font-weight: 600;
+}
+
+.mm-flag {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.mm-flag-absent {
+  font-style: italic;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+.mm-flag-yes {
+  font-weight: 700;
+}
+
+.mm-flag-no {
+  opacity: 0.85;
+}
+
+.mm-zone {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.mm-original {
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+.mm-badge {
+  display: inline-block;
+  padding: 0 0.3rem;
+  border: 1px solid currentColor;
+  border-radius: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mm-badge-collides {
+  text-decoration: underline double;
+}
+
+.mm-collide-list {
+  margin: 0.2rem 0 0;
+  padding-left: 1rem;
+  font-size: 0.78rem;
+}
+
+.mm-alignment-why {
+  font-size: 0.78rem;
+}
+
+.mm-patch code,
+.mm-patch-artifact {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  word-break: break-all;
+}
+
+.mm-none {
+  opacity: 0.7;
+}
+
+.mm-unavailable {
+  border: 2px solid currentColor;
+  border-radius: 0.25rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.mm-unavailable-heading {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.mm-unavailable-reason,
+.mm-unavailable-at,
+.mm-unavailable-note {
+  margin: 0.2rem 0;
+}
+
+.mm-falsifiers,
+.mm-controls {
+  border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  padding-top: 0.4rem;
+}
+
+.mm-falsifier-list,
+.mm-control-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.mm-falsifier-list li,
+.mm-control-list li {
+  margin-bottom: 0.3rem;
+}
+
+.mm-control-target {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  word-break: break-all;
+}
+
+.mm-control-proven {
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+.mm-control-note {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.mm-zonesummary {
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.mm-zonetable {
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+  width: max-content;
+  max-width: 100%;
+}
+
+.mm-zonetable th,
+.mm-zonetable td {
+  padding: 0.2rem 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+.mm-launchers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mm-launcher-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mm-launcher {
+  flex: 1 1 16rem;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mm-launcher-button {
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 0.2rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mm-launcher-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.mm-launcher-subject {
+  margin: 0;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.mm-readonly {
+  margin: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px dashed currentColor;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+}
