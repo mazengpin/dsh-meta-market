@@ -30,7 +30,7 @@
 
 **A note on the two figures that differ from earlier prose.** `host-half` was previously recorded as 39 passed; the measured figure is 40 of 40 declared. The earlier number is one behind, and the measured one is what this file states.
 
-**Packaging is measured the same way:** `npm pack --dry-run` reports the file count and tarball size below.
+**Packaging is measured the same way.** `npm pack --dry-run` on 2026-11-03 reported **130 files**, **package size 2.5 MB**, **unpacked size 9.9 MB**. The earlier published figure of 127 files was taken before `DISCLOSURE.md` and `CONTEXT.md` existed; 127 + 2 is 129, so one further file differs and was not isolated file by file, which is why this file states the measured 130 rather than reconstructing the count.
 
 ## 3 What it does NOT do
 
