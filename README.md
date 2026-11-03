@@ -14,11 +14,11 @@ Nothing here is authenticated: the deployment holds an identifier and no key, so
 
 No route here reaches a model or a device. The two surfaces that name a model call state in their own `notDone` field that they do NOT make it.
 
-## Install
+## Adopting it inside DSH
 
 **A consumer installs the published pre-release package, and nothing else.** This package is a SOURCE PREVIEW: the source tree is readable and reviewable, but it is not an install target. Read `DISCLOSURE.md` before depending on any shape.
 
-1. `pnpm add dsh-meta-market@next` in the consuming profile. The `next` dist-tag is the only tag this pre-release will be published on; as of `0.9.1-next.1` it is not on npm yet.
+1. The deployment stages the published pre-release tarball from the `next` dist-tag into the profile. No package-manager command is prescribed; staging is the deployment choice.
 2. Add `"dsh-meta-market"` to the profile `dsh.profile.bundles` array. The bundle patch `cordis.patch.yml` carries the single `insert` row, so the loader mounts the Host half as the row `meta-market` and the client half is served from `exports["./client"]`.
 3. Restart `dsh web`. A `dsh.profile.bundles` change hot-reloads; the Host half is a boot-time load.
 
