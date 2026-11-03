@@ -98,7 +98,7 @@
 
 **SOURCE PREVIEW ÔÇö information-providing only.** Readable and reviewable: the source, the charter, this disclosure, the context and the roadmap all ship so that a stranger can audit the claims without installing anything.
 
-**NOT installable from source.** `pnpm install && pnpm run build` here describes DEVELOPING the clone, not consuming it. A consumer installs the published pre-release tarball from the `next` dist-tag; there is no supported path in which a profile links this working tree.
+**NOT installable from source.** `pnpm install && pnpm run build` here describes DEVELOPING the clone, not consuming it. A consumer installs the published pre-release tarball from the `next` dist-tag. **CORRECTED IN PLACE 2026-11-03** — this sentence previously said there is no supported path in which a profile links this working tree, and that is wrong for a DEVELOPMENT profile: the program rule is that a profile consumes a clone through a RELATIVE `link:` only, and an absolute path is what is not supported. What remains true is that a working tree is not a published artifact, so a `link:` consumption is a development arrangement for this machine and never a release anyone else may rely on.
 
 **What arrives with the tarball:** `lib/index.js`, `lib/client.js`, `lib/client.js.map`, `src`, `cordis.patch.yml`, `CHARTER.md`, `README.md`, `LICENSE`, `ROADMAP.md`, `DISCLOSURE.md`, `CONTEXT.md`.
 

@@ -17,9 +17,12 @@ No route here reaches a model or a device. The two surfaces that name a model ca
 ## What the market layer answers today
 
 The market layer answers one question: **what is worth offering, judged on what was received rather than on who offered it.**
-A candidate is offered as an artifact — a capability table, a declared prefix, a disclosure of what it does not do — and it is graded against conditions it can fail; the verdict is recorded beside the candidate instead of replacing it, so a reader sees the offer and the grading of the offer.
-It refuses what it cannot measure, and it says which condition refused rather than returning a quiet no: an unread member is reported as absent or unmeasured with its reason, and a refusal that names nothing is treated as a defect of the refusal rather than a verdict.
-What it does NOT do is stated here as plainly as what it does: it does not enforce, because a verdict is not a control; it has not been exercised against a peer fleet beyond a single host; and it makes no claim about a rendered surface, since how a deployment presents the data is the deployment choice.
+A candidate is offered as an artifact — a capability table, a declared prefix, a disclosure of what it does not do — and it is graded against conditions it can fail.
+The verdict is recorded beside the candidate, never in place of it, so a reader sees the offer and the grading of the offer rather than one overwriting the other.
+A description is treated as a claim by its author and not as a capability, so being offered is never the same as being trusted.
+It refuses what it cannot measure, and it names the condition that refused rather than returning a quiet no: an unread member is reported as absent or unmeasured, with its reason, and a refusal that names nothing is treated as a defect of the refusal rather than as a verdict.
+What it does NOT do belongs here beside what it does: it does not enforce, because a verdict is not a control, and an ungraded or graded offer changes nothing in a running system by itself.
+It has not been exercised against a peer fleet beyond a single host, and it makes no claim about a rendered surface, because how a deployment presents the data is the deployment's choice rather than this package's.
 
 ## Adopting it inside DSH
 
