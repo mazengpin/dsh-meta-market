@@ -1,4 +1,3 @@
-
 # DISCLOSURE ÔÇö dsh-meta-market 0.9.0
 
 **This file states what the package IS, what it does today, what it does NOT do, what it reads and writes, and what a consumer must not conclude from it.** Where a number appears it was measured by running something, and the command is named. Where something is unmeasured it is called unmeasured rather than zero.
@@ -16,25 +15,15 @@
 **`pnpm run verify` exits 0 across eleven self-contained harnesses, measured 2026-11-03T20:13Z on node v24.21.0.** The counts, each with its denominator:
 
 - hosting ÔÇö 18 of 18 checks, and it derives the hosting ledger from the live registry then mutates four copies to prove the predicate can go RED.
-
 - host-half ÔÇö 40 of 40 declared assertions, 40 passed / 0 failed, against a real socket bound on an OS-assigned port (that run used 54567).
-
 - negative-control ÔÇö 3 of 3 mutations caught, 6 of 6 control assertions satisfied, with `lib/index.js` restored byte-identical (628,106 B, sha256 `e2053c90a40bd92644250e14c37f0ec8715004699c27c331cbccb81f7d1f6525`).
-
 - implemented-sweep ÔÇö 37 of 37 assertions, 0 failed; reports 19 VERIFIED (ran) + 0 VERIFIED (read) + 3 PLAN = 22 threats, of which 16 of 22 are IMPLEMENTED.
-
 - barrel-check ÔÇö all checks held, 13 top-level keys, payload 6,401 B.
-
 - disclosure ÔÇö the sentence-level disclosure walk over the real catalog (5,785 downloadable rows).
-
 - attacker ÔÇö 31 of 31 assertions passed, 0 failed.
-
 - census ÔÇö 15 of 15 checks, frozen expectations 15.
-
 - dialogue ÔÇö 36 of 36 assertions passed.
-
 - gate ÔÇö 29 of 29 checks passed, 0 skipped; the fitted token threshold 0.3407 sits inside the feasible interval (0.2584, 0.4504).
-
 - window ÔÇö 13 of 13 checks passed.
 
 **One harness in that list was repaired rather than excused.** `barrel-check.mjs` compared two calls of `describeSurface()` after deleting ONE timestamp, while the payload carries TWO (`standing.censusAt` and `implementation.censusAt`); a full `pnpm run verify` on 2026-11-03 went RED on that comparison for a one-millisecond boundary rather than for drift. Both timestamps are now excluded and every other field is still compared field by field ÔÇö the check was widened to its own stated intent, not weakened.
@@ -46,17 +35,11 @@
 ## 3 What it does NOT do
 
 - **It does not apply a patch.** `src/host/patch/quarantine.ts` holds no code path that applies anything; a received envelope is quarantined, sealed and re-verified on read, and application belongs to whoever owns the running system.
-
 - **It does not aggregate alignment across peers.** `aggregateAlignment(perPeer, census)` does not exist; `social/` holds pair bounds and single-instance bounds only.
-
 - **It does not call a model and does not reach a GPU.** The two surfaces that name a model carry a `notDone` field stating the call is not made; the safety lane publishes `runsTheGate: false`.
-
 - **It does not sign anything, authenticate a peer, or prove provenance.** See section 6.
-
 - **It does not discover peers across a network in practice.** The DHT surface on `(zoneId, bucket)` is `plan`, and the surface says so: peers contacted is `0 of 0` and the topology is reported as `plan` rather than as a running network.
-
 - **It does not publish itself.** No registry write happens in this package; the release owner publishes the tarball.
-
 - **It does not guarantee that a received package is safe.** It gives you a bounded dialogue, a refusal vocabulary, a quarantine and a blindness register; it does not give you a verdict you can outsource your judgement to.
 
 ## 4 Data it reads and writes, with paths
@@ -64,21 +47,15 @@
 **Read, all of it on this machine:**
 
 - `profiles-tree/<profile>/package.json` ÔÇö the consuming profile manifest, found by walking UP for a fixed shape rather than by counting `../` (`src/host/registry/paths.ts`). It is how `mounted` is recomputed rather than asserted, and how the bundle census is taken.
-
 - the plugin market catalog snapshot ÔÇö the frozen zone corpus and the downloadable live catalog are both read as files; the disclosure harness reported 5,785 of 5,785 rows parsed against the header of the file itself.
-
 - `tmp/meta-market-trust.json` ÔÇö the admission list, under the workspace `tmp/`, deliberately NOT in `$DSH_HOME`. The owner writes it; this package only reads it, and it keeps absent, empty and unreadable as three separate states.
-
 - the skill catalog roots, resolved from the home directory (`src/host/providers/skills.ts`).
-
 - live `GET` readings of other plugins on `http://127.0.0.1:3083` ÔÇö see section 5.
 
 **Written, all of it under the workspace:**
 
 - `.dsh/meta-market/stable-official/ledger.json` ÔÇö the stable ledger, written through a temporary sibling and a rename so a reader sees the previous file in full or the new one in full; there is NO lock, so two concurrent writers can lose one write, and that is stated rather than papered over.
-
 - `.dsh/meta-market/quarantine/<id>/record.json` and `.dsh/meta-market/quarantine/<id>/envelope.json` ÔÇö the verdict and the exact bytes that were verified.
-
 - harness artifacts written beside their own harnesses: `last-census.json`, `last-run.json`, `last-run.json`.
 
 **Not written: nothing under `127.0.0.1:3083`, and nothing outside the workspace.** No credential, no key material and no anonymous user id is written by this package.

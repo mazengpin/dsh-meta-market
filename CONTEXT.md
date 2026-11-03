@@ -1,4 +1,3 @@
-
 # CONTEXT ÔÇö dsh-meta-market
 
 **This file exists so that a stranger can rebuild the REASONING behind this package, not only its source.** It is context, not contract: the contract is `CHARTER.md`, the state is `DISCLOSURE.md`, and the remaining work is `ROADMAP.md`.
@@ -18,15 +17,10 @@
 **The constraint that shaped this one is `CHARTER.md`, and it is a governing document rather than a style guide.** A charter edit is a breaking change to the wire, because the charter is where the shapes come from. What it forbids, and what each prohibition forced:
 
 - **No Cordis-to-GPU connection and no model call from a route.** Forced the surfaces that NAME a model ÔÇö `decideByLaya` in dialogue, the embedder identity in alignment ÔÇö to carry a `notDone` field that states the call is not made, and forced the safety lane to publish `runsTheGate: false` rather than a reassuring boolean.
-
 - **The three kinds, `exists` / `plan` / `future`, never flattened, and no `status` / `done` / `ready` / `shipped` token anywhere in the protocol.** Forced six lane surfaces to report `kind` honestly ÔÇö every lane here reports `plan` today ÔÇö and forced the assembly report to derive `kind` from a live probe instead of declaring it.
-
 - **An absent field is not a zero, and a measured zero is not an absence.** Forced `Measured` (a count WITH its denominator) and `Maybe<T>` (a value WITH the reason it is absent) into the frozen protocol, and forced the social surface to publish an unmeasured sybil cost as `null` rather than `0`.
-
 - **No central arbiter.** Forced the refusal to aggregate: `aggregateAlignment(perPeer, census)` does not exist, and `social/` holds pair bounds and single-instance bounds only.
-
 - **The raw intent vector is never exchanged, only a fingerprint.** Forced `IntentVectorReference` (zone ids, identity, freshness, census time) ÔÇö a vector would reveal which interests a person holds.
-
 - **Port 3083 is the live session of the owner: read freely, never write, never restart.** Forced every live reading in this build to be a bounded GET, and forced the providers that read the routes of OTHER plugins to be excluded from the verify chain of this package.
 
 ## 3 The intent, and what was deliberately NOT attempted
@@ -36,15 +30,10 @@
 **Deliberately NOT attempted, each for a stated reason:**
 
 - **A second real host on a second machine.** Not attempted: no second machine is available in this environment, so every dialogue claim today is one host against a fixture. Recorded as `ROADMAP.md` item 1 rather than implied by the word peer.
-
 - **Producer-side signing of an exchanged package.** Not attempted: no key material exists, so nothing signs a record and a consumer must not read an exchanged package as provenance. This is threat `T22`, carried as `PLAN` with `control is null`.
-
 - **Applying a received patch.** Not attempted on purpose: `patch/quarantine.ts` has no code path that applies anything. Application belongs to whoever owns the running system.
-
 - **Aggregate alignment across peers.** Not attempted: any aggregate would be one instance speaking for many, which is the authority the charter removes.
-
 - **A model call from any route.** Not attempted: owner prohibition; see section 2.
-
 - **Publishing from source.** Not attempted: the package is a SOURCE PREVIEW. Install arrives with the published pre-release tarball on the `next` dist-tag.
 
 ## 4 Alternatives considered and rejected
@@ -66,19 +55,12 @@
 **These steps use no shell other than the one that runs `node`, `pnpm`, `git` and `npm`. There is no platform-specific script in this package and none is needed.**
 
 1. `git clone <this repository>` and `cd` into `plugins-src/dsh-meta-market`.
-
 2. `node -v` ÔÇö must satisfy `engines.node` (`^22.19.0 || >=24.0.0`); the `dsh` engine range is `>=0.2.2-0 <0.3.0`.
-
 3. `pnpm install` ÔÇö installs the six devDependencies; there are no runtime dependencies.
-
 4. `pnpm run typecheck` ÔÇö `tsc --noEmit`.
-
 5. `pnpm run build` ÔÇö `tsdown`, emitting `lib/index.js` (Host half) and `lib/client.js` (browser half).
-
 6. `pnpm run verify` ÔÇö eleven self-contained harnesses; the chain excludes the four harnesses that read the live surface of another plugin.
-
 7. `npm pack --dry-run` ÔÇö prints the file list and tarball size that a publish would carry.
-
 8. To mount the clone in a profile: add `"dsh-meta-market": "link:../../plugins-src/dsh-meta-market"` to the profile `package.json`, add `"dsh-meta-market"` to its `dsh.profile.bundles`, run `pnpm install` there, then restart `dsh web` ÔÇö a bundles change hot-reloads, the Host half is a boot-time load.
 
 ## 6 What to read next
@@ -88,11 +70,7 @@
 **Then the source files that carry the design reasoning, each in a long header comment rather than in this file:**
 
 - `src/shared/protocol.ts` ÔÇö the frozen wire shapes, and why each field exists (`Measured`, `Maybe<T>`, `Confidence`, `IntentVectorReference`).
-
 - `src/host/safety/gate.ts` ÔÇö the 22-threat table, the standing split, and the union privilege rule.
-
 - `src/host/patch/quarantine.ts` ÔÇö why nothing lands in a live market from a peer, and why the seal is re-checked on read.
-
 - `src/host/stable/store.ts` ÔÇö why the ledger is one file, why the seal is over a key-sorted serialisation, and why a failed write says so.
-
 - `src/host/registry/paths.ts` ÔÇö why a count of `../` is a bet on where the file will be emitted, and how the walk was repaired.
